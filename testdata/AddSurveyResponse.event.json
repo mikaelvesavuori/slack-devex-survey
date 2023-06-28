@@ -1,0 +1,14 @@
+{
+  "version": "0",
+  "id": "eaaa7afc-35e8-d628-91fd-124604c91058",
+  "detail-type": "AddResponse",
+  "source": "DevExSurvey",
+  "account": "123412341234",
+  "time": "2023-06-26T16:55:03Z",
+  "region": "eu-north-1",
+  "resources": [],
+  "detail": {
+    "choices": ["positive", "neutral", "negative", "neutral", "positive"],
+    "timestamp": 1687798503885
+  }
+}

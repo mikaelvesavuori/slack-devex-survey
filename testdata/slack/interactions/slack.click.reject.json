@@ -1,0 +1,69 @@
+{
+  "type": "block_actions",
+  "user": {
+    "id": "U0123456789",
+    "userName": "sam_person",
+    "name": "sam",
+    "team_id": "T0123456789"
+  },
+  "api_app_id": "A0123456789",
+  "token": "sAQXs2jlGdPaM90NDxphuTJD",
+  "container": {
+    "type": "message",
+    "message_ts": "1687019912.973579",
+    "channel_id": "C05DQDU98HE",
+    "is_ephemeral": false
+  },
+  "trigger_id": "5428598152103.5445196420020.6ad9efbea3252dcdc793d6c76007e013",
+  "team": { "id": "T0123456789", "domain": "mydomain" },
+  "enterprise": null,
+  "is_enterprise_install": false,
+  "channel": { "id": "C05DQDU98HE", "name": "projects" },
+  "message": {
+    "type": "message",
+    "subtype": "bot_message",
+    "text": "DevEx survey Approve button Reject button",
+    "ts": "1687019912.973579",
+    "bot_id": "B05CUCJ396J",
+    "blocks": [
+      {
+        "type": "header",
+        "block_id": "QC3r",
+        "text": { "type": "plain_text", "text": "DevEx survey", "emoji": true }
+      },
+      {
+        "type": "actions",
+        "block_id": "4mO",
+        "elements": [
+          {
+            "type": "button",
+            "action_id": "NXV9c",
+            "text": { "type": "plain_text", "text": "Approve", "emoji": true },
+            "style": "primary",
+            "value": "approave"
+          },
+          {
+            "type": "button",
+            "action_id": "ZsKr",
+            "text": { "type": "plain_text", "text": "Reject", "emoji": true },
+            "style": "danger",
+            "value": "reject"
+          }
+        ]
+      }
+    ]
+  },
+  "state": { "values": {} },
+  "response_url": "https://hooks.slack.com/actions/T0123456789/5445567525492/jlqMaj12XF6y9MWf2P5LKxv9",
+  "actions": [
+    {
+      "action_id": "ZsKr",
+      "block_id": "4mO",
+      "text": { "type": "plain_text", "text": "Reject", "emoji": true },
+      "value": "reject",
+      "style": "danger",
+      "type": "button",
+      "action_ts": "1687019939.957083"
+    }
+  ]
+}

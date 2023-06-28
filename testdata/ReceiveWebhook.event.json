@@ -1,0 +1,373 @@
+{
+  "type": "block_actions",
+  "user": {
+    "id": "U0123456789",
+    "userName": "sam_person",
+    "name": "sam",
+    "team_id": "T0123456789"
+  },
+  "api_app_id": "A0123456789",
+  "token": "sAQXs2jlGdPaM90NDxphuTJD",
+  "container": {
+    "type": "message",
+    "message_ts": "1687796691.359009",
+    "channel_id": "D0123456789",
+    "is_ephemeral": false
+  },
+  "trigger_id": "5470786716455.5445196420020.a9ad07d29725e899a0b2c74ce85b13b2",
+  "team": {
+    "id": "T0123456789",
+    "domain": "mydomain"
+  },
+  "enterprise": null,
+  "is_enterprise_install": false,
+  "channel": {
+    "id": "D0123456789",
+    "name": "directmessage"
+  },
+  "message": {
+    "bot_id": "B05D0U6DNE7",
+    "type": "message",
+    "text": "DevEx+survey+*1.+How+has+your+day+been?*+*2.+Did+you+make+progress+toward+your+goals+today?*\nConsider+the+clarity+of+goals,+how+engaging+the+work+is,+your+control+of+the+structure+of+work…+*3.+Have+you+been+able+to+focus+today?*\nConsider+the+number+of+meetings,+interruptions,+unplanned+work…+*4.+Is+your+tooling+working+well+and+fast?*\nConsider+CI,+code+tools,+platform+tools,+build+and+test+times,+code+review+times…+*5.+Is+the+cognitive+load+manageable?*\nConsider+project+complexity,+friction,+processes,+communication…+*Finish*+Finish+the+survey+:tada:+button,+with+interactive+elements",
+    "user": "U0123456789",
+    "ts": "1687796691.359009",
+    "app_id": "A0123456789",
+    "blocks": [
+      {
+        "type": "header",
+        "block_id": "vfP",
+        "text": {
+          "type": "plain_text",
+          "text": "DevEx+survey",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "GSy4",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*1.+How+has+your+day+been?*",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "dayChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I+feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "z7W",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*2.+Did+you+make+progress+toward+your+goals+today?*\nConsider+the+clarity+of+goals,+how+engaging+the+work+is,+your+control+of+the+structure+of+work…",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "progressChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I+feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "gZa6g",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*3.+Have+you+been+able+to+focus+today?*\nConsider+the+number+of+meetings,+interruptions,+unplanned+work…",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "focusChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I+feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "I8lza",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*4.+Is+your+tooling+working+well+and+fast?*\nConsider+CI,+code+tools,+platform+tools,+build+and+test+times,+code+review+times…",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "toolingChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I+feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "eLw",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*5.+Is+the+cognitive+load+manageable?*\nConsider+project+complexity,+friction,+processes,+communication…",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "cognitiveChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I+feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "ZNsd",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Finish*",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "button",
+          "action_id": "button",
+          "style": "primary",
+          "text": {
+            "type": "plain_text",
+            "text": "Finish+the+survey+:tada:",
+            "emoji": true
+          },
+          "value": "finalize"
+        }
+      }
+    ],
+    "team": "T0123456789"
+  },
+  "state": {
+    "values": {
+      "GSy4": {
+        "dayChoice": {
+          "type": "static_select",
+          "selected_option": {
+            "text": {
+              "type": "plain_text",
+              "text": "Positive",
+              "emoji": true
+            },
+            "value": "positive"
+          }
+        }
+      },
+      "z7W": {
+        "progressChoice": {
+          "type": "static_select",
+          "selected_option": {
+            "text": {
+              "type": "plain_text",
+              "text": "Negative",
+              "emoji": true
+            },
+            "value": "negative"
+          }
+        }
+      },
+      "gZa6g": {
+        "focusChoice": {
+          "type": "static_select",
+          "selected_option": {
+            "text": {
+              "type": "plain_text",
+              "text": "Positive",
+              "emoji": true
+            },
+            "value": "positive"
+          }
+        }
+      },
+      "I8lza": {
+        "toolingChoice": {
+          "type": "static_select",
+          "selected_option": {
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral",
+              "emoji": true
+            },
+            "value": "neutral"
+          }
+        }
+      },
+      "eLw": {
+        "cognitiveChoice": {
+          "type": "static_select",
+          "selected_option": {
+            "text": {
+              "type": "plain_text",
+              "text": "Positive",
+              "emoji": true
+            },
+            "value": "positive"
+          }
+        }
+      }
+    }
+  },
+  "response_url": "https://hooks.slack.com/actions/T0123456789/1234567890123/some-random-string",
+  "actions": [
+    {
+      "action_id": "button",
+      "block_id": "ZNsd",
+      "text": {
+        "type": "plain_text",
+        "text": "Finish+the+survey+:tada:",
+        "emoji": true
+      },
+      "value": "finalize",
+      "style": "primary",
+      "type": "button",
+      "action_ts": "1687796768.691262"
+    }
+  ]
+}

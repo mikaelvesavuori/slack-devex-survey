@@ -1,0 +1,15 @@
+{
+  "token": "sAQXs2jlGdPaM90NDxphuTJD",
+  "team_id": "T0123456789",
+  "team_domain": "mikaelvesavuori",
+  "channel_id": "C05DQDU98HE",
+  "channel_name": "projects",
+  "user_id": "U0123456789",
+  "user_name": "mikael",
+  "command": "/devex",
+  "text": "optin",
+  "api_app_id": "A0123456789",
+  "is_enterprise_install": "false",
+  "response_url": "https://hooks.slack.com/commands/T0123456789/5462507481233/bYI2daoG8HWcF6BPacltEqLM",
+  "trigger_id": "5446939764197.5445196420020.e5dd8ee3eb8566e1e90f5ee4d2b20e30"
+}

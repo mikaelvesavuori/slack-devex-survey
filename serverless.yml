@@ -1,0 +1,260 @@
+service: slack-devex-survey
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  architecture: arm64
+  stage: ${opt:stage, 'prod'}
+  region:  ${opt:region, 'eu-north-1'}
+  memorySize: ${opt:memory, 1024}
+  timeout: ${opt:timeout, 10}
+  logRetentionInDays: ${opt:logRetentionInDays, 7}
+  versionFunctions: false
+  deploymentBucket:
+    blockPublicAccess: true
+    maxPreviousDeploymentArtifacts: 5
+    serverSideEncryption: AES256
+  stackTags:
+    Usage: ${self:service}
+  tags:
+    Usage: ${self:service}
+  apiGateway:
+    minimumCompressionSize: 1024
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+  - serverless-iam-roles-per-function
+
+package:
+  individually: true
+
+custom:
+  config:
+    # Required
+    awsAccountNumber: '123412341234' # SET THIS TO YOUR VALUE
+    # Optional
+    eventSource: DevExSurvey
+    eventDetailTypeAddResponse: AddResponse
+    eventDetailTypeOptIn: OptIn
+    eventDetailTypeOptOut: OptOut
+    eventBusName: DevExSurveyBus
+    tableName: DevExSurveyTable
+    # Secrets
+    credentials: ${ssm:/aws/reference/secretsmanager/DevExSurvey} # Credentials need to be loaded from Secrets Manager first
+    slackAuthToken: ${self:custom.config.credentials.SLACK_AUTH_TOKEN}
+    googleSheetsDocumentId: ${self:custom.config.credentials.GOOGLE_SHEETS_DOCUMENT_ID}
+    googleServiceAccountEmail: ${self:custom.config.credentials.GOOGLE_SHEETS_SERVICE_ACCOUNT_EMAIL}
+    googlePrivateKey: ${self:custom.config.credentials.GOOGLE_SHEETS_PRIVATE_KEY}
+  aws:
+    credentialsSecretArn: arn:aws:secretsmanager:${aws:region}:${self:custom.config.awsAccountNumber}:secret:DevExSurvey-*
+    eventBusArn: arn:aws:events:${aws:region}:${self:custom.config.awsAccountNumber}:event-bus/${self:custom.config.eventBusName}
+    tableArn: arn:aws:dynamodb:${aws:region}:${self:custom.config.awsAccountNumber}:table/${self:custom.config.tableName}
+  esbuild:
+    bundle: true
+    minify: true
+
+functions:
+  #########################
+  # Synchronous functions #
+  #########################
+  ReceiveWebhook:
+    handler: src/ReceiveWebhook.handler
+    description: Receive webhooks from each interaction in Slack
+    events:
+      - httpApi:
+          method: POST
+          path: /receive
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - events:PutEvents
+        Resource: ${self:custom.aws.eventBusArn}
+      - Effect: 'Allow'
+        Action:
+          - secretsmanager:GetSecretValue
+        Resource:
+          - ${self:custom.aws.credentialsSecretArn}
+    environment:
+      REGION: ${aws:region}
+      SLACK_AUTH_TOKEN: ${self:custom.config.slackAuthToken}
+      EVENT_BUS_NAME: ${self:custom.config.eventBusName}
+      EVENT_SOURCE: ${self:custom.config.eventSource}
+      EVENT_DETAIL_TYPE_ADD: ${self:custom.config.eventDetailTypeAddResponse}
+
+  SlashCommand:
+    handler: src/SlashCommand.handler
+    description: Receive interactions with the "/devex" slash command
+    events:
+      - httpApi:
+          method: POST
+          path: /slash
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - events:PutEvents
+        Resource: ${self:custom.aws.eventBusArn}
+      - Effect: 'Allow'
+        Action:
+          - secretsmanager:GetSecretValue
+        Resource:
+          - ${self:custom.aws.credentialsSecretArn}
+    environment:
+      REGION: ${aws:region}
+      SLACK_AUTH_TOKEN: ${self:custom.config.slackAuthToken}
+      EVENT_BUS_NAME: ${self:custom.config.eventBusName}
+      EVENT_SOURCE: ${self:custom.config.eventSource}
+      EVENT_DETAIL_TYPE_OPTIN: ${self:custom.config.eventDetailTypeOptIn}
+      EVENT_DETAIL_TYPE_OPTOUT: ${self:custom.config.eventDetailTypeOptOut}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  OpenSurvey:
+    handler: src/OpenSurvey.handler
+    description: Open up survey on Slack
+    events:
+      # TODO comment out
+      - httpApi:
+          method: GET
+          path: /open
+      - schedule: cron(0 15 ? * FRI *) # Every Friday at 15:00 Zulu/UTC. See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:Query
+        Resource: ${self:custom.aws.tableArn}
+      - Effect: 'Allow'
+        Action:
+          - secretsmanager:GetSecretValue
+        Resource:
+          - ${self:custom.aws.credentialsSecretArn}
+    environment:
+      REGION: ${aws:region}
+      SLACK_AUTH_TOKEN: ${self:custom.config.slackAuthToken}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  GetSurveyResponses:
+    handler: src/GetSurveyResponses.handler
+    description: Get survey responses from DynamoDB
+    events:
+      - httpApi:
+          method: GET
+          path: /responses
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:Query
+        Resource: ${self:custom.aws.tableArn}
+    environment:
+      REGION: ${aws:region}
+      SLACK_AUTH_TOKEN: ${self:custom.config.slackAuthToken}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  ##########################
+  # Asynchronous functions #
+  ##########################
+  OptInUser:
+    handler: src/OptInUser.handler
+    description: Opt in user to survey
+    events:
+      - eventBridge:
+          eventBus: ${self:custom.config.eventBusName}
+          pattern:
+            source:
+              - ${self:custom.config.eventSource}
+            detail-type:
+              - ${self:custom.config.eventDetailTypeOptIn}
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:PutItem
+        Resource: ${self:custom.aws.tableArn}
+    environment:
+      REGION: ${aws:region}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  OptOutUser:
+    handler: src/OptOutUser.handler
+    description: Opt out user from survey
+    events:
+      - eventBridge:
+          eventBus: ${self:custom.config.eventBusName}
+          pattern:
+            source:
+              - ${self:custom.config.eventSource}
+            detail-type:
+              - ${self:custom.config.eventDetailTypeOptOut}
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:DeleteItem
+        Resource: ${self:custom.aws.tableArn}
+    environment:
+      REGION: ${aws:region}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  AddSurveyResponse:
+    handler: src/AddSurveyResponse.handler
+    description: Add survey response to DynamoDB
+    events:
+      - eventBridge:
+          eventBus: ${self:custom.config.eventBusName}
+          pattern:
+            source:
+              - ${self:custom.config.eventSource}
+            detail-type:
+              - ${self:custom.config.eventDetailTypeAddResponse}
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:PutItem
+        Resource: ${self:custom.aws.tableArn}
+    environment:
+      REGION: ${aws:region}
+      TABLE_NAME: ${self:custom.config.tableName}
+
+  # OPTIONAL: Use if you want to use Google Sheets
+  WriteToGoogleSheets:
+    handler: src/WriteToGoogleSheets.handler
+    description: Write the response to a Google Sheet (optional)
+    events:
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - DevExSurveyTable
+              - StreamArn
+          batchSize: 1
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - secretsmanager:GetSecretValue
+        Resource:
+          - ${self:custom.aws.credentialsSecretArn}
+    environment:
+      GOOGLE_SHEETS_DOCUMENT_ID: ${self:custom.config.googleSheetsDocumentId}
+      GOOGLE_SERVICE_ACCOUNT_EMAIL: ${self:custom.config.googleServiceAccountEmail}
+      GOOGLE_PRIVATE_KEY: ${self:custom.config.googlePrivateKey}
+
+resources:
+  Resources:
+    DevExSurveyTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      UpdateReplacePolicy: Retain
+      Properties:
+        TableName: ${self:custom.config.tableName}
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+        BillingMode: PAY_PER_REQUEST
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true

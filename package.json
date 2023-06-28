@@ -1,0 +1,48 @@
+{
+  "name": "slack-devex-survey",
+  "description": "Box-ready serverless solution to run developer experience surveys on a scheduled or one-off cadence.",
+  "version": "1.0.0",
+  "author": "Mikael Vesavuori",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikaelvesavuori/slack-devex-survey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikaelvesavuori/slack-devex-survey/issues"
+  },
+  "homepage": "https://github.com/mikaelvesavuori/slack-devex-survey",
+  "scripts": {
+    "start": "npx sls offline --reloadHandler",
+    "build": "npx sls package",
+    "deploy": "npx sls deploy",
+    "teardown": "npx sls remove",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3",
+    "@aws-sdk/client-eventbridge": "3",
+    "@types/google-spreadsheet": "3",
+    "chrono-utils": "1",
+    "devexbot": "1",
+    "google-spreadsheet": "3",
+    "mikrolog": "2"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "5",
+    "@typescript-eslint/parser": "5",
+    "esbuild": "0",
+    "eslint": "8",
+    "eslint-config-prettier": "8",
+    "eslint-plugin-prettier": "4",
+    "husky": "8",
+    "prettier": "2",
+    "serverless": "3",
+    "serverless-esbuild": "1",
+    "serverless-iam-roles-per-function": "3",
+    "serverless-offline": "12",
+    "ts-node": "latest",
+    "typescript": "5"
+  }
+}

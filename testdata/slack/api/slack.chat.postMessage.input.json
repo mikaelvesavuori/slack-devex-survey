@@ -1,0 +1,219 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "DevEx survey",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "1. How has your day been?"
+      },
+      "accessory": {
+        "type": "static_select",
+        "action_id": "dayChoice",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select an item"
+        },
+        "options": [
+          {
+            "value": "positive",
+            "text": {
+              "type": "plain_text",
+              "text": "Positive"
+            }
+          },
+          {
+            "value": "neutral",
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral"
+            }
+          },
+          {
+            "value": "negative",
+            "text": {
+              "type": "plain_text",
+              "text": "Negative"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "2. Did you make progress toward your goals today? Consider the clarity of goals, how engaging the work is, your control of the structure of work…"
+      },
+      "accessory": {
+        "type": "static_select",
+        "action_id": "progressChoice",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select an item"
+        },
+        "options": [
+          {
+            "value": "positive",
+            "text": {
+              "type": "plain_text",
+              "text": "Positive"
+            }
+          },
+          {
+            "value": "neutral",
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral"
+            }
+          },
+          {
+            "value": "negative",
+            "text": {
+              "type": "plain_text",
+              "text": "Negative"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "3. Have you been able to focus today? Consider the number of meetings, interruptions, unplanned work…"
+      },
+      "accessory": {
+        "type": "static_select",
+        "action_id": "focusChoice",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select an item"
+        },
+        "options": [
+          {
+            "value": "positive",
+            "text": {
+              "type": "plain_text",
+              "text": "Positive"
+            }
+          },
+          {
+            "value": "neutral",
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral"
+            }
+          },
+          {
+            "value": "negative",
+            "text": {
+              "type": "plain_text",
+              "text": "Negative"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "4. Is your tooling working well and fast? Consider CI, code tools, platform tools, build and test times, code review times…"
+      },
+      "accessory": {
+        "type": "static_select",
+        "action_id": "toolingChoice",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select an item"
+        },
+        "options": [
+          {
+            "value": "positive",
+            "text": {
+              "type": "plain_text",
+              "text": "Positive"
+            }
+          },
+          {
+            "value": "neutral",
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral"
+            }
+          },
+          {
+            "value": "negative",
+            "text": {
+              "type": "plain_text",
+              "text": "Negative"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "5. Is the cognitive load manageable? Consider project complexity, friction, processes, communication…"
+      },
+      "accessory": {
+        "type": "static_select",
+        "action_id": "cognitiveChoice",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select an item"
+        },
+        "options": [
+          {
+            "value": "positive",
+            "text": {
+              "type": "plain_text",
+              "text": "Positive"
+            }
+          },
+          {
+            "value": "neutral",
+            "text": {
+              "type": "plain_text",
+              "text": "Neutral"
+            }
+          },
+          {
+            "value": "negative",
+            "text": {
+              "type": "plain_text",
+              "text": "Negative"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Finalize"
+      },
+      "accessory": {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "Finalize"
+        },
+        "style": "primary",
+        "value": "finalize",
+        "action_id": "button"
+      }
+    }
+  ]
+}

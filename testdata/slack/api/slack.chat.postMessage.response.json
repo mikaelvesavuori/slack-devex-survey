@@ -1,0 +1,282 @@
+{
+  "ok": true,
+  "channel": "D0123456789",
+  "ts": "1687201469.592199",
+  "message": {
+    "bot_id": "B05D0U6DNE7",
+    "type": "message",
+    "text": "DevEx survey *1. How has your day been?* *2. Did you make progress toward your goals today?*\n_Consider the clarity of goals, how engaging the work is, your control of the structure of work…_ *3. Have you been able to focus today?*\n _Consider the number of meetings, interruptions, unplanned work…_ *4. Is your tooling working well and fast?*\n _Consider CI, code tools, platform tools, build and test times, code review times…_ *5. Is the cognitive load manageable?*\n _Consider project complexity, friction, processes, communication…_ *Finish* Finish the survey :tada: button, with interactive elements",
+    "user": "U0123456789",
+    "ts": "1687201469.592199",
+    "app_id": "A0123456789",
+    "blocks": [
+      {
+        "type": "header",
+        "block_id": "dM4",
+        "text": {
+          "type": "plain_text",
+          "text": "DevEx survey",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "1hGe2",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*1. How has your day been?*",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "dayChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "jNrD",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*2. Did you make progress toward your goals today?*\n_Consider the clarity of goals, how engaging the work is, your control of the structure of work…_",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "progressChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "htvPw",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*3. Have you been able to focus today?*\n _Consider the number of meetings, interruptions, unplanned work…_",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "focusChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "govK",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*4. Is your tooling working well and fast?*\n _Consider CI, code tools, platform tools, build and test times, code review times…_",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "toolingChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "Dcv",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*5. Is the cognitive load manageable?*\n _Consider project complexity, friction, processes, communication…_",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "static_select",
+          "action_id": "cognitiveChoice",
+          "placeholder": {
+            "type": "plain_text",
+            "text": "I feel...",
+            "emoji": true
+          },
+          "options": [
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Positive",
+                "emoji": true
+              },
+              "value": "positive"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Neutral",
+                "emoji": true
+              },
+              "value": "neutral"
+            },
+            {
+              "text": {
+                "type": "plain_text",
+                "text": "Negative",
+                "emoji": true
+              },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "nsU",
+        "text": {
+          "type": "mrkdwn",
+          "text": "*Finish*",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "button",
+          "action_id": "button",
+          "style": "primary",
+          "text": {
+            "type": "plain_text",
+            "text": "Finish the survey :tada:",
+            "emoji": true
+          },
+          "value": "finalize"
+        }
+      }
+    ],
+    "team": "T0123456789",
+    "bot_profile": {
+      "id": "B05D0U6DNE7",
+      "app_id": "A0123456789",
+      "name": "DevEx Survey",
+      "icons": {
+        "image_36": "https://a.slack-edge.com/80588/img/plugins/app/bot_36.png",
+        "image_48": "https://a.slack-edge.com/80588/img/plugins/app/bot_48.png",
+        "image_72": "https://a.slack-edge.com/80588/img/plugins/app/service_72.png"
+      },
+      "deleted": false,
+      "updated": 1687017494,
+      "team_id": "T0123456789"
+    }
+  },
+  "warning": "missing_charset",
+  "response_metadata": {
+    "warnings": ["missing_charset"]
+  }
+}

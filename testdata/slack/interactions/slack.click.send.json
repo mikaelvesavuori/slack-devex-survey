@@ -1,0 +1,240 @@
+{
+  "type": "block_actions",
+  "user": {
+    "id": "U0123456789",
+    "userName": "sam_person",
+    "name": "sam",
+    "team_id": "T0123456789"
+  },
+  "api_app_id": "A0123456789",
+  "token": "sAQXs2jlGdPaM90NDxphuTJD",
+  "container": {
+    "type": "message",
+    "message_ts": "1687021978.883879",
+    "channel_id": "C05DQDU98HE",
+    "is_ephemeral": false
+  },
+  "trigger_id": "5440242324629.5445196420020.efbe34d27ef20646d9eedcae1efc86d8",
+  "team": { "id": "T0123456789", "domain": "mydomain" },
+  "enterprise": null,
+  "is_enterprise_install": false,
+  "channel": { "id": "C05DQDU98HE", "name": "projects" },
+  "message": {
+    "type": "message",
+    "subtype": "bot_message",
+    "text": "DevEx survey 1. How has your day been? 2. Did you make progress toward your goals today? Consider the clarity of goals, how engaging the work is, your control of the structure of work\u2026 3. Have you been able to focus today? Consider the number of meetings, interruptions, unplanned work\u2026 4. Is your tooling working well and fast? Consider CI, code tools, platform tools, build and test times, code review times\u2026 5. Is the cognitive load manageable? Consider project complexity, friction, processes, communication\u2026 Finalize Save button, with interactive elements",
+    "ts": "1687021978.883879",
+    "bot_id": "B05CUCJ396J",
+    "blocks": [
+      {
+        "type": "header",
+        "block_id": "LdGA",
+        "text": { "type": "plain_text", "text": "DevEx survey", "emoji": true }
+      },
+      {
+        "type": "section",
+        "block_id": "22J",
+        "text": { "type": "mrkdwn", "text": "1. How has your day been?", "verbatim": false },
+        "accessory": {
+          "type": "radio_buttons",
+          "action_id": "dayChoice",
+          "options": [
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+              "value": "positive"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+              "value": "neutral"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "FCb",
+        "text": {
+          "type": "mrkdwn",
+          "text": "2. Did you make progress toward your goals today? Consider the clarity of goals, how engaging the work is, your control of the structure of work\u2026",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "radio_buttons",
+          "action_id": "progressChoice",
+          "options": [
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+              "value": "positive"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+              "value": "neutral"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "7UzOc",
+        "text": {
+          "type": "mrkdwn",
+          "text": "3. Have you been able to focus today? Consider the number of meetings, interruptions, unplanned work\u2026",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "radio_buttons",
+          "action_id": "focusChoice",
+          "options": [
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+              "value": "positive"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+              "value": "neutral"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "/RUja",
+        "text": {
+          "type": "mrkdwn",
+          "text": "4. Is your tooling working well and fast? Consider CI, code tools, platform tools, build and test times, code review times\u2026",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "radio_buttons",
+          "action_id": "toolingChoice",
+          "options": [
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+              "value": "positive"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+              "value": "neutral"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "+1xh",
+        "text": {
+          "type": "mrkdwn",
+          "text": "5. Is the cognitive load manageable? Consider project complexity, friction, processes, communication\u2026",
+          "verbatim": false
+        },
+        "accessory": {
+          "type": "radio_buttons",
+          "action_id": "cognitiveChoice",
+          "options": [
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+              "value": "positive"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+              "value": "neutral"
+            },
+            {
+              "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+              "value": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "vRF",
+        "text": { "type": "mrkdwn", "text": "Finalize", "verbatim": false },
+        "accessory": {
+          "type": "button",
+          "action_id": "button",
+          "style": "primary",
+          "text": { "type": "plain_text", "text": "Save", "emoji": true },
+          "value": "click_me_123"
+        }
+      }
+    ]
+  },
+  "state": {
+    "values": {
+      "22J": {
+        "dayChoice": {
+          "type": "radio_buttons",
+          "selected_option": {
+            "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+            "value": "positive"
+          }
+        }
+      },
+      "FCb": {
+        "progressChoice": {
+          "type": "radio_buttons",
+          "selected_option": {
+            "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+            "value": "neutral"
+          }
+        }
+      },
+      "7UzOc": {
+        "focusChoice": {
+          "type": "radio_buttons",
+          "selected_option": {
+            "text": { "type": "mrkdwn", "text": "\ud83d\ude1e", "verbatim": false },
+            "value": "negative"
+          }
+        }
+      },
+      "/RUja": {
+        "toolingChoice": {
+          "type": "radio_buttons",
+          "selected_option": {
+            "text": { "type": "mrkdwn", "text": "\ud83d\ude10", "verbatim": false },
+            "value": "neutral"
+          }
+        }
+      },
+      "+1xh": {
+        "cognitiveChoice": {
+          "type": "radio_buttons",
+          "selected_option": {
+            "text": { "type": "mrkdwn", "text": "\ud83d\ude04", "verbatim": false },
+            "value": "positive"
+          }
+        }
+      }
+    }
+  },
+  "response_url": "https://hooks.slack.com/actions/T0123456789/5445612514964/1rOIL4vVQg6i9MdK4rINSWCI",
+  "actions": [
+    {
+      "action_id": "button",
+      "block_id": "vRF",
+      "text": { "type": "plain_text", "text": "Save", "emoji": true },
+      "value": "click_me_123",
+      "style": "primary",
+      "type": "button",
+      "action_ts": "1687022143.281105"
+    }
+  ]
+}

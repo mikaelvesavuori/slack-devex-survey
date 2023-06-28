@@ -1,0 +1,14 @@
+{
+  "version": "0",
+  "id": "eb4829a5-7c98-6cd6-9b76-2f0188bef4ad",
+  "detail-type": "OptIn",
+  "source": "DevExSurvey",
+  "account": "123412341234",
+  "time": "2023-06-26T16:28:15Z",
+  "region": "eu-north-1",
+  "resources": [],
+  "detail": {
+    "userId": "U0123456789",
+    "userName": "sam_person"
+  }
+}
