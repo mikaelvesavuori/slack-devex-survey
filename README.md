@@ -51,6 +51,10 @@ Install the dependencies with `npm install` or your equivalent command.
 
 You will need to do a few things before actually deploying the code. If you want to support Google Sheets, make sure to read everything first (including the special steps below) before doing anything.
 
+#### `devexbot` configuration
+
+Use `src/config/SurveyConfiguration.json` as per the `devexbot` documentation.
+
 #### Setting up your DevEx app in Slack
 
 - [Create a Slack app](https://api.slack.com/authentication/basics). Set it to whatever name you want.
