@@ -102,14 +102,14 @@ You can change this in `serverless.yml` under the `OpenSurvey` function, where t
 - schedule: cron(0 15 ? * FRI *)
 ```
 
+See AWS's page [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) for more. You can use the online [crontab guru](https://crontab.guru) to test your patterns since cron patterns can be a bit wonky if you haven't worked with them before.
+
 #### Deployment and last fixes
 
 - Update `serverless.yml` with your AWS account number in `custom.config.awsAccountNumber`.
 - Deploy the solution with `npm run deploy`.
 - Once this is done (should take 2-3 minutes), you'll end up with a set of URLs to the public synchronous functions. **Note down the values for `ReceiveWebhook` and `SlashCommand`**.
 - Back on the [Slack API page](https://api.slack.com/), set these URL values in the `Interactivity & Shortcuts` and `Slash Commands` pages, respectively.
-
-See AWS's page [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) for more. You can use the online [crontab guru](https://crontab.guru) to test your patterns since cron patterns can be a bit wonky if you haven't worked with them before.
 
 ### Deployment
 
